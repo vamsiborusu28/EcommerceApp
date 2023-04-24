@@ -80,6 +80,8 @@ UserSchema.methods={
         return forgetToken;
 
     }
+
+    
     
 }
 
