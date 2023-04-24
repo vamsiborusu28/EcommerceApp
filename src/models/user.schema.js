@@ -66,10 +66,21 @@ UserSchema.methods={
   
     // Implementing Forget Password Token
 
-    // generateForgetPasswordToken : async function(){
+    generateForgetPasswordToken : async function(){
+        // generate forget password token
+        const forgetToken=crypto.randomBytes(20).toString('hex');
 
+        //assign this token by decrypting to forgetPasswordToken
+        this.forgetPasswordToken=crypto.createHash('sha256').update(forgetToken).digest('hex');
 
-    // }
+        // Update the token expiry to 20 minutes
+
+        this.forgotPasswordExpiry=Date.now()+ (20*60*1000);
+
+        return forgetToken;
+
+    }
+    
 }
 
 
