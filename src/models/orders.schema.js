@@ -31,12 +31,15 @@ const orderSchema=new mongoose.Schema({
     coupon:{
         type:String,
     },
+    transactionId:String,
     status:{
         type:String,
         enum:Object.values(StatusTypes),
         default:StatusTypes.ORDERED,
     }
-});
+},
+{timestamps:true}
+);
 
 
 export default mongoose.models("Order",orderSchema);
