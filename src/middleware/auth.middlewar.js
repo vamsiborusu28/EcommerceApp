@@ -17,7 +17,7 @@ export const isLoggedIn= asyncHandler(async (req,res,next) => {
     if(!token){
         return new CustomError("invalid token",401);
     }
-
+    
     try{
         // Verify our JWT Token if verified get the details of the user 
         const userPayload=JWT.verify(token,config.JWT_SECRET);
@@ -34,6 +34,7 @@ export const isLoggedIn= asyncHandler(async (req,res,next) => {
 
 
 export const isAuthorised=(...requiredRoles) => asyncHandler( async (req,res,next) => {
+    // If user role is not required category throw not authorized error
     if(!requiredRoles.includes(req.user.role)){
         throw new CustomError("User is Not Authorized to access the resources ",400);
     }
