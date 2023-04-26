@@ -122,6 +122,23 @@ export const logout=asyncHandler(async (req,res,next) => {
     })
 });
 
+// getInfo Controller
+export const getInfo=asyncHandler(async (req,res)=> {
+    const user=req;
+
+    if(!user){
+        throw new CustomError('user not found',400);
+    }
+
+
+    res.status(200).json({
+        sucess:true,
+        user,
+    })
+});
+
+
+
 
 
 
