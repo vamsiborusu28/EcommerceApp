@@ -17,6 +17,7 @@ const productSchema=new mongoose.Schema({
         type:String,
         minLength:[10,"Product Description should be atleast 10 characters"]
     },
+    /*
     photos:[
         {
             secure_url:{
@@ -24,6 +25,7 @@ const productSchema=new mongoose.Schema({
             }
         }
     ],
+    */
 
     stock:{
         type:Number,

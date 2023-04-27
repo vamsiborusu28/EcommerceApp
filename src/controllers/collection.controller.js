@@ -50,7 +50,6 @@ export const updateCollection=asyncHandler(async (req,res) => {
         updateCollection,
     })
 
-
 });
 
 
