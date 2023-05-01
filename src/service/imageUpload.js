@@ -3,15 +3,15 @@ import asyncHandler from './asyncHandler';
 
 
 
-export const FileUpload= async ({bucketName,key,data,contentType}) => {
+export const FileUpload= async ({bucketName,key,body,contentType}) => {
 
     return  await s3.upload({
         Bucket:bucketName,
         Key:key,
-        Data:data,
+        Data:body,
         ContentType:contentType,
 
-    })
+    }).promise();
 };
 
 
@@ -19,6 +19,6 @@ export const FileDelete= async ({bucketName,key}) => {
     return await s3.deleteObject({
         Bucket:bucketName,
         Key:key,
-    })
+    }).promise();
 };
 
